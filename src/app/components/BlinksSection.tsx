@@ -5,7 +5,7 @@ import Image from "next/image";
 import { games } from "../data/games";
 import { toolings } from "../data/toolings";
 import { squadgames } from "../data/squadgames";
-import { tweets } from "../data/tweets"; // Import tweet links
+import { tweets } from "../data/tweets";
 import BlinkComp from "./Blinks/BlinkComp";
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { Tweet } from 'react-twitter-widgets';
@@ -55,8 +55,9 @@ const BlinksSection = () => {
         height={240}
       /> */}
 
-      <p className="text-[94px] text-center pt-24">Games</p>
-
+      <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center pt-24 leading-none">
+        Games on Blinks
+      </p>
       {/* Grid layout for 3 items per row */}
       {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full max-w-7.5xl p-20">
         {games.map((game, index) => (
@@ -68,10 +69,16 @@ const BlinksSection = () => {
       </div> */}
 
       {/* Grid layout for 3 items per row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full max-w-7.5xl xl:p-20 p-4">
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full max-w-7.5xl xl:p-20 p-4"> */}
+      <div className={
+        `${games.length === 1 ? 'grid-cols-1' :
+        games.length === 2 ? 'grid-cols-1 md:grid-cols-2 xl:pl-40 xl:pr-40 2xl:pl-72 2xl:pr-72 gap-4 xl:gap-16' :
+        'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:pl-20 xl:pr-20 gap-4 xl:gap-12'}
+        grid w-full max-w-7.5xl p-4 justify-center xl:pt-8`
+      }>
         {games.map((game, index) => (
           <div key={index}>
-            <p className="text-[42px] leading-none text-center mb-8">{game.title}</p>
+            <p className="text-[42px] leading-none text-center mb-8 mt-4">{game.title}</p>
             <BlinkComp propActionApiUrl={game.blinkUrl} />
 
             {/* Game Mechanics Text */}
@@ -99,7 +106,7 @@ const BlinksSection = () => {
                         />
                       </DialogClose>
                     </div>
-                    <div className="text-[24px]">{game.description}</div>
+                    <div className="text-[24px] whitespace-pre-line pb-4 leading-none">{game.description}</div>
                   </div>
                 </DialogContent>
               </Dialog>
@@ -108,13 +115,20 @@ const BlinksSection = () => {
         ))}
       </div>
 
-      <p className="text-[94px] text-center">Degen Tooling</p>
+      <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center leading-none">
+        Degen Tooling
+      </p>
 
       {/* Grid layout for 3 items per row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full max-w-7.5xl p-4">
+      <div className={
+        `${games.length === 1 ? 'grid-cols-1' :
+        games.length === 2 ? 'grid-cols-1 md:grid-cols-2 xl:pl-40 xl:pr-40 2xl:pl-72 2xl:pr-72 gap-4 xl:gap-16' :
+        'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:pl-20 xl:pr-20 gap-4 xl:gap-12'}
+        grid w-full max-w-7.5xl p-4 justify-center xl:pt-8`
+      }>
         {toolings.map((tooling, index) => (
           <div key={index}>
-            <p className="text-[42px] leading-none text-center mb-8">{tooling.title}</p>
+            <p className="text-[42px] leading-none text-center mb-8 mt-4">{tooling.title}</p>
             <BlinkComp propActionApiUrl={tooling.blinkUrl} />
           </div>
         ))}
@@ -133,7 +147,8 @@ const BlinksSection = () => {
       </div> */}
 
       {/* Iconic Tweets Section */}
-      <p className="text-[40px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center pt-20">
+      {/* <p className="text-[40px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center pt-20"> */}
+      <p className="text-[42px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center leading-none pt-8 pb-4 md:pt-12 md:pb-8 xl:pt-16 xl:pb-12">
         Tweets that keep us rollin on da feeds
       </p>
 
