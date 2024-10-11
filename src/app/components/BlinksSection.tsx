@@ -115,7 +115,7 @@ const BlinksSection = () => {
         ))}
       </div>
 
-      <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center leading-none">
+      <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] pt-6 md:pt-0 text-center leading-none">
         Degen Tooling
       </p>
 
@@ -148,7 +148,7 @@ const BlinksSection = () => {
 
       {/* Iconic Tweets Section */}
       {/* <p className="text-[40px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center pt-20"> */}
-      <p className="text-[42px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center leading-none pt-8 pb-4 md:pt-12 md:pb-8 xl:pt-16 xl:pb-12">
+      <p className="text-[42px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center leading-none pt-6 pb-2 md:pt-12 md:pb-8 xl:pt-16 xl:pb-12 pl-8 pr-8">
         Tweets that keep us rollin on da feeds
       </p>
 
