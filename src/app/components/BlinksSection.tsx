@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import BottomBG from "@/assets/svgs/bgs/BottomBG.svg";
 import TopBG from "@/assets/svgs/bgs/TopBG.svg";
 import Image from "next/image";
@@ -19,19 +19,69 @@ import {
 import closeIcon from "@/assets/svgs/buttons/close.svg";
 import { CardBg } from "@/assets/bgs/CardBg";
 
+const useLazyLoading = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Stop observing once the element is visible
+        }
+      },
+      {
+        rootMargin: '200px', // Load tweets when they are 200px away from the viewport
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) observer.disconnect();
+    };
+  }, []);
+
+  return { isVisible, ref };
+};
+
+// const TweetWithSkeleton = ({ tweetId }: { tweetId: string }) => {
+//   const [isLoading, setIsLoading] = useState(true);
+
+//   return (
+//     <div className="relative">
+//       {isLoading && (
+//         <Skeleton className="w-full h-[400px]" />
+//       )}
+//       <Tweet
+//         tweetId={tweetId}
+//         onLoad={() => setIsLoading(false)}
+//         options={{ conversation: 'none' }} // Optional: Customize tweet appearance
+//       />
+//     </div>
+//   );
+// };
+
 const TweetWithSkeleton = ({ tweetId }: { tweetId: string }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const { isVisible, ref } = useLazyLoading(); // Using the custom lazy loading hook
 
   return (
-    <div className="relative">
+    <div ref={ref} className="relative">
       {isLoading && (
         <Skeleton className="w-full h-[400px]" />
       )}
-      <Tweet
-        tweetId={tweetId}
-        onLoad={() => setIsLoading(false)}
-        options={{ conversation: 'none' }} // Optional: Customize tweet appearance
-      />
+      {isVisible && (
+        <Tweet
+          tweetId={tweetId}
+          onLoad={() => setIsLoading(false)}
+          options={{ conversation: 'none' }} // Optional: Customize tweet appearance
+        />
+      )}
     </div>
   );
 };
