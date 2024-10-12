@@ -86,6 +86,14 @@ const TweetWithSkeleton = ({ tweetId }: { tweetId: string }) => {
   );
 };
 
+const shuffleArray = (array: string[]) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
+
 const BlinksSection = () => {
 
   return (
@@ -204,7 +212,7 @@ const BlinksSection = () => {
 
       {/* Masonry-like layout for tweets */}
       <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 2xl:columns-5 w-full max-w-7.5xl p-4">
-        {tweets.map((tweetUrl, index) => {
+        {shuffleArray([...tweets]).map((tweetUrl, index) => {
           const tweetId = tweetUrl.split("/").pop() || ""; // Fallback to empty string
           console.log(`Rendering Tweet: ${tweetId}`);
           return (
