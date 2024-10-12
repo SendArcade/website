@@ -28,5 +28,7 @@ export const tweets = [
   'https://x.com/aeyakovenko/status/1842041959353090182',
   'https://x.com/0xapacx/status/1838422298342363140',
   'https://x.com/send_arcade/status/1823743505035866234',
-  'https://x.com/IrffanAsiff/status/1823369320056881615'
+  'https://x.com/IrffanAsiff/status/1823369320056881615',
+  'https://x.com/thesendcoin/status/1835285757721981438',
+  'https://x.com/thesendcoin/status/1841127281831657886'
 ]
