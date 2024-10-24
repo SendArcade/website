@@ -6,6 +6,10 @@ import { games } from "../data/games";
 import { toolings } from "../data/toolings";
 import { squadgames } from "../data/squadgames";
 import { tweets } from "../data/tweets";
+import { airdrops } from "../data/airdrops";
+import { swaps } from "../data/swaps";
+import { fomomint } from "../data/fomomint";
+import { fomoburn } from "../data/fomoburn";
 import BlinkComp from "./Blinks/BlinkComp";
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { Tweet } from 'react-twitter-widgets';
@@ -17,7 +21,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import closeIcon from "@/assets/svgs/buttons/close.svg";
-import { CardBg } from "@/assets/bgs/CardBg";
 
 const useLazyLoading = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -48,23 +51,6 @@ const useLazyLoading = () => {
 
   return { isVisible, ref };
 };
-
-// const TweetWithSkeleton = ({ tweetId }: { tweetId: string }) => {
-//   const [isLoading, setIsLoading] = useState(true);
-
-//   return (
-//     <div className="relative">
-//       {isLoading && (
-//         <Skeleton className="w-full h-[400px]" />
-//       )}
-//       <Tweet
-//         tweetId={tweetId}
-//         onLoad={() => setIsLoading(false)}
-//         options={{ conversation: 'none' }} // Optional: Customize tweet appearance
-//       />
-//     </div>
-//   );
-// };
 
 const TweetWithSkeleton = ({ tweetId }: { tweetId: string }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -113,7 +99,87 @@ const BlinksSection = () => {
         height={240}
       /> */}
 
-      <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center pt-24 leading-none">
+      {/* Grid layout for 3 items per row */}
+      {/* <div className={
+        `${airdrops.length === 1 ? 'grid-cols-1 md:pl-52 md:pr-52 lg:pl-fuck3 lg:pr-fuck3 lg:pl-fuck3 lg:pr-fuck3 xl:pl-fuck2 xl:pr-fuck2 2xl:pl-fuck 2xl:pr-fuck gap-4 xl:gap-16' :
+        airdrops.length === 2 ? 'grid-cols-1 md:grid-cols-2 xl:pl-40 xl:pr-40 2xl:pl-72 2xl:pr-72 gap-4 xl:gap-16' :
+        'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:pl-20 xl:pr-20 gap-4 xl:gap-12'}
+        grid w-full max-w-7.5xl p-4 justify-center xl:pt-8`
+      }>
+        {airdrops.map((airdrop, index) => (
+          <div key={index}>
+            <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 mt-4 pt-12">{airdrop.title}</p>
+            <BlinkComp propActionApiUrl={airdrop.blinkUrl} websiteText={airdrop.websiteText} />
+          </div>
+        ))}
+      </div> */}
+
+      <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center pt-8 leading-none sm:mt-0 mt-12">
+        FOMO
+      </p>
+
+      {/* Grid layout for 2 sections (Claim your airdrop & Trade SEND) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-12 lg:gap-8 gap-4 w-full max-w-7.5xl p-4 justify-center lg:pl-40 lg:pr-40 xl:pl-72 xl:pr-72 2xl:pl-80 2xl:pr-80">
+
+        <div>
+          {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 mt-4">Key Mint</p> */}
+          {fomomint.map((mint, index) => (
+            <div key={index}>
+              <p className="text-[42px] sm:text-[56px] leading-none text-center mb-8 mt-4">{mint.title}</p>
+              <BlinkComp propActionApiUrl={mint.blinkUrl} websiteText={mint.websiteText} />
+            </div>
+          ))}
+        </div>
+
+        <div>
+          {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 mt-4">Key Burn</p> */}
+          {fomoburn.map((burn, index) => (
+            <div key={index}>
+              <p className="text-[42px] sm:text-[56px] leading-none text-center mb-8 mt-4">{burn.title}</p>
+              <BlinkComp propActionApiUrl={burn.blinkUrl} websiteText={burn.websiteText} />
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+      <div className="w-full flex justify-center">
+        <p
+          className="text-[42px] md:text-[56px] text-center mt-4 cursor-pointer hover:underline"
+          onClick={() => window.open('https://brawny-law-3b1.notion.site/SEND-FOMO-How-it-Works-12498fb3ea898028b2d9db9e50026601', '_blank')}
+        >
+          Game Mechanics ➪
+        </p>
+      </div>
+
+      {/* Grid layout for 2 sections (Claim your airdrop & Trade SEND) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-12 lg:gap-8 gap-4 w-full max-w-7.5xl p-4 justify-center xl:pt-8 lg:pl-40 lg:pr-40 xl:pl-72 xl:pr-72 2xl:pl-80 2xl:pr-80">
+
+        {/* Claim Your Airdrop Section */}
+        <div>
+          {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 mt-4 pt-12">Claim your airdrop!</p> */}
+          <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 mt-4 pt-0">Claim your airdrop!</p>
+          {airdrops.map((airdrop, index) => (
+            <div key={index}>
+              <BlinkComp propActionApiUrl={airdrop.blinkUrl} websiteText={airdrop.websiteText} />
+            </div>
+          ))}
+        </div>
+
+        {/* Trade SEND Section */}
+        <div>
+          {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 pt-4 md:mt-4 md:pt-12">Trade SEND</p> */}
+          <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 pt-4 md:mt-4 md:pt-0">Trade SEND</p>
+          {swaps.map((swap, index) => (
+            <div key={index}>
+              <BlinkComp propActionApiUrl={swap.blinkUrl} websiteText={swap.websiteText} />
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+      <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center pt-8 leading-none">
         Games on Blinks
       </p>
       {/* Grid layout for 3 items per row */}
@@ -137,7 +203,7 @@ const BlinksSection = () => {
         {games.map((game, index) => (
           <div key={index}>
             <p className="text-[42px] leading-none text-center mb-8 mt-4">{game.title}</p>
-            <BlinkComp propActionApiUrl={game.blinkUrl} />
+            <BlinkComp propActionApiUrl={game.blinkUrl} websiteText={game.websiteText} />
 
             {/* Game Mechanics Text */}
             <div className="hidden md:block">
@@ -187,26 +253,33 @@ const BlinksSection = () => {
         {toolings.map((tooling, index) => (
           <div key={index}>
             <p className="text-[42px] leading-none text-center mb-8 mt-4">{tooling.title}</p>
-            <BlinkComp propActionApiUrl={tooling.blinkUrl} />
+            <BlinkComp propActionApiUrl={tooling.blinkUrl} websiteText={tooling.websiteText} />
           </div>
         ))}
       </div>
 
-      {/* <p className="text-[94px] text-center">Squad Game Journey</p> */}
+      {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] pt-6 md:pt-12 text-center leading-none">
+        Squad Game Season 1 Journey
+      </p> */}
+      <p className="text-[48px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center leading-none pt-6 md:pt-12 pl-8 pr-8">
+        Squad Game Season 1 Journey
+      </p>
 
       {/* Grid layout for 3 items per row */}
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full max-w-7.5xl p-4">
+      <div className={
+        `grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:pl-4 2xl:pr-4 gap-4 2xl:gap-8 grid w-full max-w-7.5xl p-4 justify-center xl:pt-8`
+      }>
         {squadgames.map((squadgame, index) => (
           <div key={index}>
-            <p className="text-[42px] leading-none text-center mb-8">{squadgame.title}</p>
-            <BlinkComp propActionApiUrl={squadgame.blinkUrl} />
+            <p className="text-[38px] leading-none text-center mb-8 mt-4">{squadgame.title}</p>
+            <BlinkComp propActionApiUrl={squadgame.blinkUrl} websiteText={squadgame.websiteText} />
           </div>
         ))}
-      </div> */}
+      </div>
 
       {/* Iconic Tweets Section */}
       {/* <p className="text-[40px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center pt-20"> */}
-      <p className="text-[42px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center leading-none pt-6 pb-2 md:pt-12 md:pb-8 xl:pt-16 xl:pb-12 pl-8 pr-8">
+      <p className="text-[42px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center leading-none pt-6 pb-2 md:pt-8 md:pb-8 xl:pt-12 xl:pb-12 pl-8 pr-8">
         Tweets that keep us rollin on da feeds
       </p>
 

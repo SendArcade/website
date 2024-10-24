@@ -13,7 +13,7 @@ const DynamicBlink = dynamic(
 import { Skeleton } from "@/components/ui/skeleton";
 
 // Testing
-const BlinkComp = ({ propActionApiUrl }: { propActionApiUrl: string }) => {
+const BlinkComp = ({ propActionApiUrl, websiteText }: { propActionApiUrl: string, websiteText: string }) => {
   const [action, setAction] = useState<Action | null>(null);
 
   const actionApiUrl = propActionApiUrl;
@@ -38,7 +38,9 @@ const BlinkComp = ({ propActionApiUrl }: { propActionApiUrl: string }) => {
         <DynamicBlink
           stylePreset="default"
           action={action}
-          websiteText={new URL(actionApiUrl).hostname}
+          securityLevel="all"
+          websiteText={websiteText}
+          // websiteText="sendarcade"
         />
       ) : (
         <>

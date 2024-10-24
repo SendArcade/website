@@ -61,6 +61,11 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      spacing: {
+        'fuck': '34rem',
+        'fuck2': '29rem',
+        'fuck3': '21rem'
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

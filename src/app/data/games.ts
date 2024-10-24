@@ -1,5 +1,3 @@
-import { describe } from "node:test";
-
 export const games = [
   {
     title: "Checkmate",
@@ -25,7 +23,8 @@ export const games = [
 
     4️⃣ All pooled funds are distributed to the winning side in $SEND.`,
     
-    blinkUrl: "https://checkmate.sendarcade.fun"
+    blinkUrl: "https://checkmate.sendarcade.fun",
+    websiteText: "checkmate.sendarcade.fun"
   },
   {
     title: "Snakes & Ladders",
@@ -42,7 +41,8 @@ export const games = [
     –– Your team also gets additional prizes (e.g., BONK) as shown on the board. 
     –– A new game begins as soon as the current one ends.`,
 
-    blinkUrl: "https://snakes.sendarcade.fun/game"
+    blinkUrl: "https://dial.to/?action=solana-action:https://snakes.sendarcade.fun/api/actions/game",
+    websiteText: "snakes.sendarcade.fun"
   },
   {
     title: "Sendcoin Flip",
@@ -51,20 +51,22 @@ export const games = [
 
     Flip the coin now with 0.1, 0.5, or 1 SOL for a chance to win 2x!`,
 
-    blinkUrl: "https://dial.to/?action=solana-action:https://blink-flip.onrender.com/api/4WEkZJprSsHxadCitfqNdVS3i44sgTP41iETZe4AzS92"
+    blinkUrl: "https://dial.to/?action=solana-action:https://blink-flip.onrender.com/api/4WEkZJprSsHxadCitfqNdVS3i44sgTP41iETZe4AzS92",
+    websiteText: "flip.sendarcade.fun"
   },
   {
     title: "Save the Blink Man",
     description: "Go smash the ‘Save or Drown’ button and watch Blink Man aka Irfan rise or sink in the image with every tap!",
-    blinkUrl: "https://dial.to/?action=solana-action:https://blinkman.sendarcade.fun/api/actions/blinkman"
-  },
-  {
-    title: "Squad Game",
-    description: 
-    `Squad Game was an onchain survival game on X inspired by Squid Game, powered by Squads Protocol.
-    
-    Squad Game Season 2 is coming soon!`,
-
-    blinkUrl: "https://dial.to/?action=solana-action:https://squadgames.sendarcade.fun/api/actions/game"
+    blinkUrl: "https://dial.to/?action=solana-action:https://blinkman.sendarcade.fun/api/actions/blinkman",
+    websiteText: "blinkman.sendarcade.fun"
   }
+  // {
+  //   title: "Squad Game",
+  //   description: 
+  //   `Squad Game was an onchain survival game on X inspired by Squid Game, powered by Squads Protocol.
+    
+  //   Squad Game Season 2 is coming soon!`,
+
+  //   blinkUrl: "https://dial.to/?action=solana-action:https://squadgames.sendarcade.fun/api/actions/game"
+  // }
 ]
