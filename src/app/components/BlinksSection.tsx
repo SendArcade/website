@@ -114,15 +114,13 @@ const BlinksSection = () => {
         ))}
       </div> */}
 
-      <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center pt-8 leading-none sm:mt-0 mt-12">
+      {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center pt-8 leading-none sm:mt-0 mt-12">
         FOMO
       </p>
 
-      {/* Grid layout for 2 sections (Claim your airdrop & Trade SEND) */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-12 lg:gap-8 gap-4 w-full max-w-7.5xl p-4 justify-center lg:pl-40 lg:pr-40 xl:pl-72 xl:pr-72 2xl:pl-80 2xl:pr-80">
 
         <div>
-          {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 mt-4">Key Mint</p> */}
           {fomomint.map((mint, index) => (
             <div key={index}>
               <p className="text-[42px] sm:text-[56px] leading-none text-center mb-8 mt-4">{mint.title}</p>
@@ -132,7 +130,6 @@ const BlinksSection = () => {
         </div>
 
         <div>
-          {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 mt-4">Key Burn</p> */}
           {fomoburn.map((burn, index) => (
             <div key={index}>
               <p className="text-[42px] sm:text-[56px] leading-none text-center mb-8 mt-4">{burn.title}</p>
@@ -150,36 +147,37 @@ const BlinksSection = () => {
         >
           Game Mechanics ➪
         </p>
-      </div>
+      </div> */}
 
       {/* Grid layout for 2 sections (Claim your airdrop & Trade SEND) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-12 lg:gap-8 gap-4 w-full max-w-7.5xl p-4 justify-center xl:pt-8 lg:pl-40 lg:pr-40 xl:pl-72 xl:pr-72 2xl:pl-80 2xl:pr-80">
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-12 lg:gap-8 gap-4 w-full max-w-7.5xl p-4 justify-center xl:pt-8 lg:pl-40 lg:pr-40 xl:pl-72 xl:pr-72 2xl:pl-80 2xl:pr-80"> */}
 
         {/* Claim Your Airdrop Section */}
         <div>
           {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 mt-4 pt-12">Claim your airdrop!</p> */}
-          <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 mt-4 pt-0">Claim your airdrop!</p>
+          {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 mt-4 pt-0">Claim your airdrop!</p>
           {airdrops.map((airdrop, index) => (
             <div key={index}>
               <BlinkComp propActionApiUrl={airdrop.blinkUrl} websiteText={airdrop.websiteText} />
             </div>
-          ))}
+          ))} */}
         </div>
 
         {/* Trade SEND Section */}
         <div>
           {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 pt-4 md:mt-4 md:pt-12">Trade SEND</p> */}
-          <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 pt-4 md:mt-4 md:pt-0">Trade SEND</p>
+          {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 pt-4 md:mt-4 md:pt-0">Trade SEND</p>
           {swaps.map((swap, index) => (
             <div key={index}>
               <BlinkComp propActionApiUrl={swap.blinkUrl} websiteText={swap.websiteText} />
             </div>
-          ))}
+          ))} */}
         </div>
 
-      </div>
+      {/* </div> */}
 
-      <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center pt-8 leading-none">
+      {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center pt-8 leading-none"> */}
+      <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center pt-20 md:pt-8 leading-none">
         Games on Blinks
       </p>
       {/* Grid layout for 3 items per row */}
@@ -239,7 +237,43 @@ const BlinksSection = () => {
         ))}
       </div>
 
-      <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] pt-6 md:pt-0 text-center leading-none">
+      {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center pt-8 leading-none sm:mt-0 mt-12">
+        FOMO
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-12 lg:gap-8 gap-4 w-full max-w-7.5xl p-4 justify-center lg:pl-40 lg:pr-40 xl:pl-72 xl:pr-72 2xl:pl-80 2xl:pr-80">
+
+        <div>
+          {fomomint.map((mint, index) => (
+            <div key={index}>
+              <p className="text-[42px] sm:text-[56px] leading-none text-center mb-8 mt-4">{mint.title}</p>
+              <BlinkComp propActionApiUrl={mint.blinkUrl} websiteText={mint.websiteText} />
+            </div>
+          ))}
+        </div>
+
+        <div>
+          {fomoburn.map((burn, index) => (
+            <div key={index}>
+              <p className="text-[42px] sm:text-[56px] leading-none text-center mb-8 mt-4">{burn.title}</p>
+              <BlinkComp propActionApiUrl={burn.blinkUrl} websiteText={burn.websiteText} />
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+      <div className="w-full flex justify-center">
+        <p
+          className="text-[42px] md:text-[56px] text-center mt-4 cursor-pointer hover:underline"
+          onClick={() => window.open('https://brawny-law-3b1.notion.site/SEND-FOMO-How-it-Works-12498fb3ea898028b2d9db9e50026601', '_blank')}
+        >
+          Game Mechanics ➪
+        </p>
+      </div> */}
+
+      {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] pt-6 md:pt-0 text-center leading-none"> */}
+      <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] pt-8 md:pt-8 text-center leading-none">
         Degen Tooling
       </p>
 
