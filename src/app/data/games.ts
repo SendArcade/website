@@ -35,11 +35,9 @@ export const games = [
     → 4 pieces/teams to move 🔴 🔵 🟡 🟢 
     → Climb ladders. Dodge snakes. Win prizes.
 
-    ––  You play and win as a team [one of the 4 colors]
-    ––  Whenever any color piece (or team) wins, the prize pool gets distributed automatically among all the wallet addresses that rolled for that piece
-
-    –– Your team also gets additional prizes (e.g., BONK) as shown on the board. 
-    –– A new game begins as soon as the current one ends.`,
+    ––  You play as one of the 4 colors.
+    ––  Whenever you land on a square with a prize, you win that prize (e.g., SEND, BONK).
+    ––  A new game begins as soon as the current one ends.`,
 
     blinkUrl: "https://dial.to/?action=solana-action:https://snakes.sendarcade.fun/api/actions/game",
     websiteText: "snakes.sendarcade.fun"
@@ -49,10 +47,20 @@ export const games = [
     description:
     `Introducing: Double or Nothing!  
 
-    Flip the coin now with 0.1, 0.5, or 1 SOL for a chance to win 2x!`,
+    Flip the coin now with 0.1, 0.5, or 1 SOL for a chance to win 2x in SEND!`,
 
-    blinkUrl: "https://dial.to/?action=solana-action:https://blink-flip.onrender.com/api/4WEkZJprSsHxadCitfqNdVS3i44sgTP41iETZe4AzS92",
+    blinkUrl: "https://dial.to/?action=solana-action:https://flip.sendarcade.fun/api/actions/website",
     websiteText: "flip.sendarcade.fun"
+  },
+  {
+    title: "Rock Paper Scissors",
+    description:
+    `Introducing Double or Nothing: Rock Paper Scissors!
+    
+    Play rock paper scissors with SOL for a chance to win 2x in SEND!`,
+
+    blinkUrl: "https://dial.to/?action=solana-action:https://rps.sendarcade.fun/api/actions/rps",
+    websiteText: "rps.sendarcade.fun"
   },
   {
     title: "Save the Blink Man",
@@ -60,13 +68,4 @@ export const games = [
     blinkUrl: "https://dial.to/?action=solana-action:https://blinkman.sendarcade.fun/api/actions/blinkman",
     websiteText: "blinkman.sendarcade.fun"
   }
-  // {
-  //   title: "Squad Game",
-  //   description: 
-  //   `Squad Game was an onchain survival game on X inspired by Squid Game, powered by Squads Protocol.
-    
-  //   Squad Game Season 2 is coming soon!`,
-
-  //   blinkUrl: "https://dial.to/?action=solana-action:https://squadgames.sendarcade.fun/api/actions/game"
-  // }
 ]

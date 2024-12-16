@@ -1,0 +1,10 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - build
+      - '--tag=gcr.io/fermiparadox/sendarcade'
+      - '--build-arg=NEXT_PUBLIC_HELIUS_RPC_URL=https://philis-xg08hi-fast-mainnet.helius-rpc.com'
+      - '.'
+
+images:
+  - 'gcr.io/fermiparadox/sendarcade'

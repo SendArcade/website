@@ -13,6 +13,11 @@ RUN yarn install
 # Copy the rest of the application code to the root directory
 COPY . .
 
+ARG NEXT_PUBLIC_HELIUS_RPC_URL
+
+# Set the environment variables
+ENV NEXT_PUBLIC_HELIUS_RPC_URL=${NEXT_PUBLIC_HELIUS_RPC_URL}
+
 # Build the Next.js application
 RUN yarn build
 
