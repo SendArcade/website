@@ -2,6 +2,13 @@
 import Link from "next/link";
 import React from "react";
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 const HeroSection = () => {
   return (
@@ -10,37 +17,9 @@ const HeroSection = () => {
         <LeftBackgroundSVG />
       </div>
 
-      {/* <header className="absolute top-4 left-0 w-full flex justify-end p-6 z-20">
-        <div className="inline-block cursor-pointer">
-          <a
-            href="https://x.com/thesendcoin"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[18px] sm:text-[24px] lg:text-[42px] bg-[#1D41B9] text-white border-[4px] sm:border-[6px] lg:border-[12px] border-[#699EFF] px-2 sm:px-4 lg:px-6 py-2 sm:py-4 flex items-center"
-          >
-            <span className="text-[12px] sm:text-[16px] lg:text-[24px] mr-2">ⓘ</span>
-            <span className="italic">About SEND</span>
-          </a>
-        </div>
-      </header> */}
-
-      {/* <header className="absolute top-2 right-2 w-full flex justify-end p-6 z-20">
-        <div className="inline-block cursor-pointer">
-          <a
-            href="https://x.com/thesendcoin"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[14px] sm:text-[18px] lg:text-[24px] text-white bg-[#1D41B9] px-1 sm:px-2 lg:px-4 py-1 sm:py-2 lg:py-3 flex items-center rounded-xl shadow-2xl"
-          >
-            <span className="text-[10px] sm:text-[12px] lg:text-[16px] mr-1">ⓘ</span>
-            <span className="italic">About SEND</span>
-          </a>
-        </div>
-      </header> */}
-
       <header className="absolute top-2 right-2 w-full flex justify-end p-6 z-20">
         <div className="inline-block cursor-pointer">
-          <a
+          {/* <a
             href="https://x.com/thesendcoin"
             target="_blank"
             rel="noopener noreferrer"
@@ -49,7 +28,49 @@ const HeroSection = () => {
           >
             <span className="text-[10px] sm:text-[12px] lg:text-[16px] mr-1">ⓘ</span>
             <span>About SEND</span>
+          </a> */}
+          <a
+            href="https://x.com/thesendcoin"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button
+              className="cursor-pointer transition-all bg-blue-800 text-white px-4 py-2 rounded-lg
+              border-blue-400 border-b-[4px] 
+              hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+              active:border-b-[2px] active:brightness-90 active:translate-y-[2px]
+              text-xl"
+            >
+              About SEND
+            </button>
           </a>
+        </div>
+        <div className="ml-4">
+          <Select 
+            defaultValue="solana" 
+            onValueChange={(value) => {
+              if (value === 'eclipse') {
+                window.location.href = 'https://eclipse.sendarcade.fun';
+              }
+            }}>
+            <SelectTrigger className="w-[48px] h-[48px]">
+              <SelectValue>
+                <div className="flex items-center">
+                  <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png" alt="" className="w-7 h-7 rounded-full" />
+                </div>
+              </SelectValue>
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="solana">
+                <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png" alt="Eclipse" className="inline-block w-5 h-5 mr-2 rounded-full" />
+                <span className="text-lg">Solana</span>
+              </SelectItem>
+              <SelectItem value="eclipse">
+                <img src="/eclipse-logo.png" alt="Solana" className="inline-block rounded-full w-5 h-5 mr-2" />
+                <span className="text-lg">Eclipse</span>
+              </SelectItem>
+            </SelectContent>
+          </Select>
         </div>
       </header>
 
@@ -72,7 +93,7 @@ const HeroSection = () => {
               Twitter/X
             </a>
           </div>
-          <div className="inline-block cursor-pointer">
+          {/* <div className="inline-block cursor-pointer">
             <a
               href="https://t.me/thesendcoinsolana"
               target="_blank"
@@ -81,6 +102,18 @@ const HeroSection = () => {
               className="text-[18px] sm:text-[24px] lg:text-[42px] bg-white text-[#1C71FF] border-[4px] sm:border-[6px] lg:border-[12px] border-[#699EFF] px-2 sm:px-4 lg:px-6 py-2 sm:py-4"
             >
               Telegram
+            </a>
+          </div> */}
+          <div className="inline-block cursor-pointer">
+            <a
+              href="https://squadgame.fun"
+              target="_blank"
+              rel="noopener noreferrer"
+              // className="text-[24px] lg:text-[42px] bg-white text-[#1C71FF] border-[6px] lg:border-[12px] border-[#699EFF] px-4 lg:px-6 py-4"
+              className="text-[18px] sm:text-[24px] lg:text-[42px] bg-[#DA124C] text-white border-[4px] sm:border-[6px] lg:border-[12px] border-pink-300 px-2 sm:px-4 lg:px-6 py-2 sm:py-4"
+              // style={{ borderColor: 'rgba(255, 255, 255, 1)' }}  // 50% translucent white
+            >
+              Join Squad Game
             </a>
           </div>
         </div>
