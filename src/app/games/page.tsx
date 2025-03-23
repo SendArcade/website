@@ -32,7 +32,7 @@ export default function GamesPage() {
         }>
           {games.map((game, index) => (
             <div key={index} className="transform transition-transform hover:scale-105">
-              <Link href={`/games/${game.title.toLowerCase().replace(/\s+/g, '-')}`}>
+              <Link href={`/games/${game.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`}>
                 <p className="text-[42px] leading-none text-center mb-8">{game.title}</p>
               </Link>
               <BlinkComp propActionApiUrl={game.blinkUrl} websiteText={game.websiteText} />

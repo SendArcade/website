@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 export default function GamePage({ params }: { params: { slug: string } }) {
   const router = useRouter();
   const game = games.find(game => 
-    game.title.toLowerCase().replace(/\s+/g, '-') === params.slug
+    game.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and') === params.slug
   );
 
   if (!game) {
