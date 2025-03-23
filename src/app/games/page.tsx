@@ -15,7 +15,10 @@ import {
 export default function GamesPage() {
   return (
     <div className="min-h-screen relative flex flex-col items-center bg-[#1C71FF]">
-      <header className="fixed top-0 left-0 w-full flex justify-end p-6 z-20">
+      <header className="fixed top-0 left-0 w-full flex justify-between items-center p-6 z-20">
+        <Link href="/">
+          <p className="text-[32px] sm:text-[48px] md:text-[60px] lg:text-[80px] leading-none">SendArcade</p>
+        </Link>
         <WalletMultiButton />
       </header>
 
