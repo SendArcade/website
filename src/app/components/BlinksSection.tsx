@@ -81,7 +81,6 @@ const shuffleArray = (array: string[]) => {
 };
 
 const BlinksSection = () => {
-
   return (
     <div
       id="blinks"
@@ -91,247 +90,108 @@ const BlinksSection = () => {
         <WalletMultiButton />
       </header>
 
-      {/* <Image
-        className="w-full h-full"
-        src={TopBG}
-        alt="Top Background"
-        width={240}
-        height={240}
-      /> */}
-
-      {/* Grid layout for 3 items per row */}
-      {/* <div className={
-        `${airdrops.length === 1 ? 'grid-cols-1 md:pl-52 md:pr-52 lg:pl-fuck3 lg:pr-fuck3 lg:pl-fuck3 lg:pr-fuck3 xl:pl-fuck2 xl:pr-fuck2 2xl:pl-fuck 2xl:pr-fuck gap-4 xl:gap-16' :
-        airdrops.length === 2 ? 'grid-cols-1 md:grid-cols-2 xl:pl-40 xl:pr-40 2xl:pl-72 2xl:pr-72 gap-4 xl:gap-16' :
-        'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:pl-20 xl:pr-20 gap-4 xl:gap-12'}
-        grid w-full max-w-7.5xl p-4 justify-center xl:pt-8`
-      }>
-        {airdrops.map((airdrop, index) => (
-          <div key={index}>
-            <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 mt-4 pt-12">{airdrop.title}</p>
-            <BlinkComp propActionApiUrl={airdrop.blinkUrl} websiteText={airdrop.websiteText} />
-          </div>
-        ))}
-      </div> */}
-
-      {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center pt-8 leading-none sm:mt-0 mt-12">
-        FOMO
-      </p>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-12 lg:gap-8 gap-4 w-full max-w-7.5xl p-4 justify-center lg:pl-40 lg:pr-40 xl:pl-72 xl:pr-72 2xl:pl-80 2xl:pr-80">
-
-        <div>
-          {fomomint.map((mint, index) => (
-            <div key={index}>
-              <p className="text-[42px] sm:text-[56px] leading-none text-center mb-8 mt-4">{mint.title}</p>
-              <BlinkComp propActionApiUrl={mint.blinkUrl} websiteText={mint.websiteText} />
-            </div>
-          ))}
-        </div>
-
-        <div>
-          {fomoburn.map((burn, index) => (
-            <div key={index}>
-              <p className="text-[42px] sm:text-[56px] leading-none text-center mb-8 mt-4">{burn.title}</p>
-              <BlinkComp propActionApiUrl={burn.blinkUrl} websiteText={burn.websiteText} />
-            </div>
-          ))}
-        </div>
-
-      </div>
-
-      <div className="w-full flex justify-center">
-        <p
-          className="text-[42px] md:text-[56px] text-center mt-4 cursor-pointer hover:underline"
-          onClick={() => window.open('https://brawny-law-3b1.notion.site/SEND-FOMO-How-it-Works-12498fb3ea898028b2d9db9e50026601', '_blank')}
-        >
-          Game Mechanics ➪
+      <div className="w-full max-w-7.5xl mx-auto px-4 py-12 md:py-16 lg:py-20">
+        <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center leading-none mb-12 md:mb-16">
+          Games on Blinks
         </p>
-      </div> */}
+        
+        <div className={
+          `${games.length === 1 ? 'grid-cols-1' :
+          games.length === 2 ? 'grid-cols-1 md:grid-cols-2 xl:pl-40 xl:pr-40 2xl:pl-72 2xl:pr-72 gap-8 xl:gap-16' :
+          'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:pl-20 xl:pr-20 gap-8 xl:gap-12'} 
+          grid w-full justify-center`
+        }>
+          {games.map((game, index) => (
+            <div key={index} className="transform transition-transform hover:scale-105">
+              <p className="text-[42px] leading-none text-center mb-8">{game.title}</p>
+              <BlinkComp propActionApiUrl={game.blinkUrl} websiteText={game.websiteText} />
 
-      {/* Grid layout for 2 sections (Claim your airdrop & Trade SEND) */}
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-12 lg:gap-8 gap-4 w-full max-w-7.5xl p-4 justify-center xl:pt-8 lg:pl-40 lg:pr-40 xl:pl-72 xl:pr-72 2xl:pl-80 2xl:pr-80"> */}
+              <div className="hidden md:block">
+                <Dialog>
+                  <DialogTrigger>
+                    <p className="text-[36px] text-center mt-4 cursor-pointer hover:underline transition-colors">
+                      Game Mechanics ➪
+                    </p>
+                  </DialogTrigger>
 
-        {/* Claim Your Airdrop Section */}
-        <div>
-          {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 mt-4 pt-12">Claim your airdrop!</p> */}
-          {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 mt-4 pt-0">Claim your airdrop!</p>
-          {airdrops.map((airdrop, index) => (
-            <div key={index}>
-              <BlinkComp propActionApiUrl={airdrop.blinkUrl} websiteText={airdrop.websiteText} />
-            </div>
-          ))} */}
-        </div>
-
-        {/* Trade SEND Section */}
-        <div>
-          {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 pt-4 md:mt-4 md:pt-12">Trade SEND</p> */}
-          {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[80px] leading-none text-center mb-8 pt-4 md:mt-4 md:pt-0">Trade SEND</p>
-          {swaps.map((swap, index) => (
-            <div key={index}>
-              <BlinkComp propActionApiUrl={swap.blinkUrl} websiteText={swap.websiteText} />
-            </div>
-          ))} */}
-        </div>
-
-      {/* </div> */}
-
-      {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center pt-8 leading-none"> */}
-      <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center pt-20 md:pt-8 leading-none">
-        Games on Blinks
-      </p>
-      {/* Grid layout for 3 items per row */}
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full max-w-7.5xl p-20">
-        {games.map((game, index) => (
-          <div key={index}>
-            <p className="text-[42px] leading-none text-center mb-8">{game.title}</p>
-            <BlinkComp propActionApiUrl={game.blinkUrl} />
-          </div>
-        ))}
-      </div> */}
-
-      {/* Grid layout for 3 items per row */}
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full max-w-7.5xl xl:p-20 p-4"> */}
-      <div className={
-        `${games.length === 1 ? 'grid-cols-1' :
-        games.length === 2 ? 'grid-cols-1 md:grid-cols-2 xl:pl-40 xl:pr-40 2xl:pl-72 2xl:pr-72 gap-4 xl:gap-16' :
-        'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:pl-20 xl:pr-20 gap-4 xl:gap-12'}
-        grid w-full max-w-7.5xl p-4 justify-center xl:pt-8`
-      }>
-        {games.map((game, index) => (
-          <div key={index}>
-            <p className="text-[42px] leading-none text-center mb-8 mt-4">{game.title}</p>
-            <BlinkComp propActionApiUrl={game.blinkUrl} websiteText={game.websiteText} />
-
-            {/* Game Mechanics Text */}
-            <div className="hidden md:block">
-              <Dialog>
-                <DialogTrigger>
-                  <p
-                    className="text-[36px] text-center mt-4 cursor-pointer hover:underline"
-                  >
-                    Game Mechanics ➪
-                  </p>
-                </DialogTrigger>
-
-                <DialogContent className="bg-[#1C71FF]">
-                  <div className="flex flex-col text-white">
-                    <div className="flex justify-between align-top ">
-                      <div className="text-[42px]"> {game.title} </div>
-                      <DialogClose>
-                        <Image
-                          className="w-8 h-8"
-                          src={closeIcon}
-                          alt="close"
-                          width={40}
-                          height={40}
-                        />
-                      </DialogClose>
+                  <DialogContent className="bg-[#1C71FF] max-w-2xl">
+                    <div className="flex flex-col text-white">
+                      <div className="flex justify-between items-start">
+                        <div className="text-[42px]">{game.title}</div>
+                        <DialogClose>
+                          <Image
+                            className="w-8 h-8 hover:opacity-80 transition-opacity"
+                            src={closeIcon}
+                            alt="close"
+                            width={40}
+                            height={40}
+                          />
+                        </DialogClose>
+                      </div>
+                      <div className="text-[24px] whitespace-pre-line pb-4 leading-relaxed">{game.description}</div>
                     </div>
-                    <div className="text-[24px] whitespace-pre-line pb-4 leading-none">{game.description}</div>
-                  </div>
-                </DialogContent>
-              </Dialog>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center pt-8 leading-none sm:mt-0 mt-12">
-        FOMO
-      </p>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-12 lg:gap-8 gap-4 w-full max-w-7.5xl p-4 justify-center lg:pl-40 lg:pr-40 xl:pl-72 xl:pr-72 2xl:pl-80 2xl:pr-80">
-
-        <div>
-          {fomomint.map((mint, index) => (
-            <div key={index}>
-              <p className="text-[42px] sm:text-[56px] leading-none text-center mb-8 mt-4">{mint.title}</p>
-              <BlinkComp propActionApiUrl={mint.blinkUrl} websiteText={mint.websiteText} />
+                  </DialogContent>
+                </Dialog>
+              </div>
             </div>
           ))}
         </div>
 
-        <div>
-          {fomoburn.map((burn, index) => (
-            <div key={index}>
-              <p className="text-[42px] sm:text-[56px] leading-none text-center mb-8 mt-4">{burn.title}</p>
-              <BlinkComp propActionApiUrl={burn.blinkUrl} websiteText={burn.websiteText} />
-            </div>
-          ))}
+        <div className="mt-24 md:mt-32">
+          <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center leading-none mb-12 md:mb-16">
+            Degen Tooling
+          </p>
+
+          <div className={
+            `${toolings.length === 1 ? 'grid-cols-1' :
+            toolings.length === 2 ? 'grid-cols-1 md:grid-cols-2 xl:pl-40 xl:pr-40 2xl:pl-72 2xl:pr-72 gap-8 xl:gap-16' :
+            'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:pl-20 xl:pr-20 gap-8 xl:gap-12'} 
+            grid w-full justify-center`
+          }>
+            {toolings.map((tooling, index) => (
+              <div key={index} className="transform transition-transform hover:scale-105">
+                <p className="text-[42px] leading-none text-center mb-8">{tooling.title}</p>
+                <BlinkComp propActionApiUrl={tooling.blinkUrl} websiteText={tooling.websiteText} />
+              </div>
+            ))}
+          </div>
         </div>
 
-      </div>
+        <div className="mt-24 md:mt-32">
+          <p className="text-[48px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center leading-none mb-12 md:mb-16 px-8">
+            Squad Game Season 1 Journey
+          </p>
 
-      <div className="w-full flex justify-center">
-        <p
-          className="text-[42px] md:text-[56px] text-center mt-4 cursor-pointer hover:underline"
-          onClick={() => window.open('https://brawny-law-3b1.notion.site/SEND-FOMO-How-it-Works-12498fb3ea898028b2d9db9e50026601', '_blank')}
-        >
-          Game Mechanics ➪
-        </p>
-      </div> */}
-
-      {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] pt-6 md:pt-0 text-center leading-none"> */}
-      <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] pt-8 md:pt-8 text-center leading-none">
-        Degen Tooling
-      </p>
-
-      {/* Grid layout for 3 items per row */}
-      <div className={
-        `${games.length === 1 ? 'grid-cols-1' :
-        games.length === 2 ? 'grid-cols-1 md:grid-cols-2 xl:pl-40 xl:pr-40 2xl:pl-72 2xl:pr-72 gap-4 xl:gap-16' :
-        'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:pl-20 xl:pr-20 gap-4 xl:gap-12'}
-        grid w-full max-w-7.5xl p-4 justify-center xl:pt-8`
-      }>
-        {toolings.map((tooling, index) => (
-          <div key={index}>
-            <p className="text-[42px] leading-none text-center mb-8 mt-4">{tooling.title}</p>
-            <BlinkComp propActionApiUrl={tooling.blinkUrl} websiteText={tooling.websiteText} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:pl-4 2xl:pr-4 gap-8 2xl:gap-12 w-full max-w-7.5xl mx-auto">
+            {squadgames.map((squadgame, index) => (
+              <div key={index} className="transform transition-transform hover:scale-105">
+                <p className="text-[38px] leading-none text-center mb-8">{squadgame.title}</p>
+                <BlinkComp propActionApiUrl={squadgame.blinkUrl} websiteText={squadgame.websiteText} />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
 
-      {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] pt-6 md:pt-12 text-center leading-none">
-        Squad Game Season 1 Journey
-      </p> */}
-      <p className="text-[48px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center leading-none pt-6 md:pt-12 pl-8 pr-8">
-        Squad Game Season 1 Journey
-      </p>
+        <div className="mt-24 md:mt-32">
+          <p className="text-[42px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center leading-none mb-12 md:mb-16 px-8">
+            Tweets that keep us rollin on da feeds
+          </p>
 
-      {/* Grid layout for 3 items per row */}
-      <div className={
-        `grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:pl-4 2xl:pr-4 gap-4 2xl:gap-8 grid w-full max-w-7.5xl p-4 justify-center xl:pt-8`
-      }>
-        {squadgames.map((squadgame, index) => (
-          <div key={index}>
-            <p className="text-[38px] leading-none text-center mb-8 mt-4">{squadgame.title}</p>
-            <BlinkComp propActionApiUrl={squadgame.blinkUrl} websiteText={squadgame.websiteText} />
+          <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 2xl:columns-5 gap-8">
+            {shuffleArray([...tweets]).map((tweetUrl, index) => {
+              const tweetId = tweetUrl.split("/").pop() || "";
+              return (
+                <div key={index} className="mb-8 break-inside-avoid">
+                  <TweetWithSkeleton tweetId={tweetId} />
+                </div>
+              );
+            })}
           </div>
-        ))}
-      </div>
-
-      {/* Iconic Tweets Section */}
-      {/* <p className="text-[40px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center pt-20"> */}
-      <p className="text-[42px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center leading-none pt-6 pb-2 md:pt-8 md:pb-8 xl:pt-12 xl:pb-12 pl-8 pr-8">
-        Tweets that keep us rollin on da feeds
-      </p>
-
-      {/* Masonry-like layout for tweets */}
-      <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 2xl:columns-5 w-full max-w-7.5xl p-4">
-        {shuffleArray([...tweets]).map((tweetUrl, index) => {
-          const tweetId = tweetUrl.split("/").pop() || ""; // Fallback to empty string
-          console.log(`Rendering Tweet: ${tweetId}`);
-          return (
-            <div key={index} className="mb-4 break-inside-avoid">
-              <TweetWithSkeleton tweetId={tweetId} />
-            </div>
-          );
-        })}
+        </div>
       </div>
 
       <Image
-        className="w-full h-full"
+        className="w-full h-full mt-24"
         src={BottomBG}
         alt="Sponsors"
         width={240}
