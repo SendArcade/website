@@ -88,7 +88,15 @@ const BlinksSection = () => {
       className="min-h-screen relative flex flex-col items-center bg-[#1C71FF]"
     >
       <header className="absolute top-0 left-0 w-full flex justify-end p-6 z-20">
-        <WalletMultiButton />
+        <div className="flex items-center space-x-4">
+          <button
+            className="text-white bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded"
+            onClick={() => window.open('https://t.me/+NYGSumBT885mMThk', '_blank')}
+          >
+            Customer Support
+          </button>
+          <WalletMultiButton />
+        </div>
       </header>
 
       {/* <Image
@@ -313,12 +321,12 @@ const BlinksSection = () => {
 
       {/* Iconic Tweets Section */}
       {/* <p className="text-[40px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center pt-20"> */}
-      <p className="text-[42px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center leading-none pt-6 pb-2 md:pt-8 md:pb-8 xl:pt-12 xl:pb-12 pl-8 pr-8">
+      {/* <p className="text-[42px] md:text-[60px] lg:text-[80px] xl:text-[94px] text-center leading-none pt-6 pb-2 md:pt-8 md:pb-8 xl:pt-12 xl:pb-12 pl-8 pr-8">
         Tweets that keep us rollin on da feeds
-      </p>
+      </p> */}
 
       {/* Masonry-like layout for tweets */}
-      <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 2xl:columns-5 w-full max-w-7.5xl p-4">
+      {/* <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 2xl:columns-5 w-full max-w-7.5xl p-4">
         {shuffleArray([...tweets]).map((tweetUrl, index) => {
           const tweetId = tweetUrl.split("/").pop() || ""; // Fallback to empty string
           console.log(`Rendering Tweet: ${tweetId}`);
@@ -328,7 +336,7 @@ const BlinksSection = () => {
             </div>
           );
         })}
-      </div>
+      </div> */}
 
       <Image
         className="w-full h-full"

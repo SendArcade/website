@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import {
   Select,
@@ -9,8 +9,25 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { useGlitch } from "react-powerglitch"
 
 const HeroSection = () => {
+  const glitch = useGlitch({
+    // Customize your glitch options here
+    glitchTimeSpan: { start: 0.5, end: 0.8 },
+    onHover: true,
+    onClick: false,
+  })
+
+  const [isCopied, setIsCopied] = useState(false);
+
+  const handleCopy = () => {
+    const fullCA = "SENDdRQtYMWaQrBroBrJ2Q53fgVuq95CV9UPGEvpCxa";
+    navigator.clipboard.writeText(fullCA);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 3000);
+  };
+
   return (
     <div className="flex flex-row relative justify-between items-center bg-[#1C71FF]">
       <div>
@@ -30,7 +47,7 @@ const HeroSection = () => {
             <span>About SEND</span>
           </a> */}
           <a
-            href="https://x.com/thesendcoin"
+            href="https://thesendcoin.com"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -51,23 +68,35 @@ const HeroSection = () => {
             onValueChange={(value) => {
               if (value === 'eclipse') {
                 window.location.href = 'https://eclipse.sendarcade.fun';
+              } else if (value === 'sonic') {
+                window.location.href = 'https://sonic.sendarcade.fun';
+              } else if (value === 'svmbnb') {
+                window.location.href = 'https://svmbnb.sendarcade.fun';
               }
             }}>
             <SelectTrigger className="w-[48px] h-[48px]">
               <SelectValue>
                 <div className="flex items-center">
-                  <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png" alt="" className="w-7 h-7 rounded-full" />
+                  <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png" alt="Solana" className="w-7 h-7 rounded-full" />
                 </div>
               </SelectValue>
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="solana">
-                <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png" alt="Eclipse" className="inline-block w-5 h-5 mr-2 rounded-full" />
+                <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png" alt="Solana" className="inline-block w-5 h-5 mr-2 rounded-full" />
                 <span className="text-lg">Solana</span>
               </SelectItem>
               <SelectItem value="eclipse">
-                <img src="/eclipse-logo.png" alt="Solana" className="inline-block rounded-full w-5 h-5 mr-2" />
+                <img src="/eclipse-logo.png" alt="Eclipse" className="inline-block rounded-full w-5 h-5 mr-2" />
                 <span className="text-lg">Eclipse</span>
+              </SelectItem>
+              <SelectItem value="sonic">
+                <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/35051.png" alt="Sonic" className="inline-block rounded-full w-5 h-5 mr-2" />
+                <span className="text-lg">Sonic</span>
+              </SelectItem>
+              <SelectItem value="svmbnb">
+                <img src="https://static.coinall.ltd/cdn/wallet/logo/soon_bnb_33300.png" alt="svmBNB" className="inline-block rounded-full w-5 h-5 mr-2" />
+                <span className="text-lg">svmBNB</span>
               </SelectItem>
             </SelectContent>
           </Select>
@@ -84,39 +113,58 @@ const HeroSection = () => {
         <div className="flex flex-row items-center mr-2 sm:mr-8 gap-2 sm:gap-4 lg:gap-6 absolute mt-16 sm:mt-0 sm:bottom-20 sm:top-44 md:top-52 lg:top-48 xl:top-60 2xl:top-80 z-10">
           <div className="inline-block cursor-pointer">
             <a
-              href="https://x.com/send_arcade"
+              href="https://x.com/sendarcadefun"
               target="_blank"
               rel="noopener noreferrer"
-              // className="text-[24px] lg:text-[42px] bg-[#1D41B9] text-white border-[6px] lg:border-[12px] border-[#699EFF] px-4 lg:px-6 py-4"
               className="text-[18px] sm:text-[24px] lg:text-[42px] bg-[#1D41B9] text-white border-[4px] sm:border-[6px] lg:border-[12px] border-[#699EFF] px-2 sm:px-4 lg:px-6 py-2 sm:py-4"
             >
               Twitter/X
             </a>
           </div>
-          {/* <div className="inline-block cursor-pointer">
+          <div className="inline-block cursor-pointer">
             <a
               href="https://t.me/thesendcoinsolana"
               target="_blank"
               rel="noopener noreferrer"
-              // className="text-[24px] lg:text-[42px] bg-white text-[#1C71FF] border-[6px] lg:border-[12px] border-[#699EFF] px-4 lg:px-6 py-4"
               className="text-[18px] sm:text-[24px] lg:text-[42px] bg-white text-[#1C71FF] border-[4px] sm:border-[6px] lg:border-[12px] border-[#699EFF] px-2 sm:px-4 lg:px-6 py-2 sm:py-4"
             >
               Telegram
             </a>
-          </div> */}
-          <div className="inline-block cursor-pointer">
+          </div>
+        </div>
+        <div className="absolute mt-32 mt-40 sm:mt-[240px] md:mt-[260px] lg:mt-[300px] xl:mt-[340px] 2xl:mt-[420px] z-10">
+          <button
+            onClick={handleCopy}
+            className="text-[16px] sm:text-[20px] lg:text-[24px] bg-white/10 text-white border border-white/30 px-3 sm:px-4 lg:px-6 py-1.5 sm:py-2 cursor-pointer hover:bg-white/20 hover:border-white/50 hover:-translate-y-1 transition-all duration-200 rounded-lg backdrop-blur-sm flex items-center gap-2"
+          >
+            <span>SENDdR...EvpCxa</span>
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className={`h-4 w-4 transition-all duration-200 ${isCopied ? 'text-green-400' : ''}`} 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              {isCopied ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              )}
+            </svg>
+          </button>
+        </div>
+        {/* <div className="inline-block cursor-pointer">
             <a
               href="https://squadgame.fun"
               target="_blank"
               rel="noopener noreferrer"
-              // className="text-[24px] lg:text-[42px] bg-white text-[#1C71FF] border-[6px] lg:border-[12px] border-[#699EFF] px-4 lg:px-6 py-4"
               className="text-[18px] sm:text-[24px] lg:text-[42px] bg-[#DA124C] text-white border-[4px] sm:border-[6px] lg:border-[12px] border-pink-300 px-2 sm:px-4 lg:px-6 py-2 sm:py-4"
-              // style={{ borderColor: 'rgba(255, 255, 255, 1)' }}  // 50% translucent white
+              ref={glitch.ref}
+              style={{ lineHeight: 'normal' }}
             >
               Join Squad Game
             </a>
-          </div>
-        </div>
+          </div> */}
       </div>
       {/* <div className="-scale-y-100 -rotate-180 transform"> */}
       <div>
