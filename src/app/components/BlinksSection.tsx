@@ -89,12 +89,12 @@ const BlinksSection = () => {
     >
       <header className="absolute top-0 left-0 w-full flex justify-end p-6 z-20">
         <div className="flex items-center space-x-4">
-          <button
+          {/* <button
             className="text-white bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded"
             onClick={() => window.open('https://t.me/+NYGSumBT885mMThk', '_blank')}
           >
             Customer Support
-          </button>
+          </button> */}
           <WalletMultiButton />
         </div>
       </header>
@@ -184,7 +184,48 @@ const BlinksSection = () => {
 
       {/* </div> */}
 
-      {/* <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center pt-8 leading-none"> */}
+      <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center mt-20 sm:mt-12 leading-none">
+        Featured Games
+      </p>
+
+      <div className="grid w-full max-w-7.5xl p-4 justify-center xl:pt-8">
+        <div className="text-center mb-8 mt-4">
+          <p className="text-[42px] leading-none">Lana Roads</p>
+
+          <div
+            className="relative group cursor-pointer mt-6 w-fit mx-auto"
+            onClick={() => window.open('https://lanaroads.sendarcade.fun', '_blank')}
+          >
+            {/* Hover Center Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="bg-black/70 text-white text-lg sm:text-xl px-6 py-3 rounded-xl shadow-lg backdrop-blur-sm">
+                PLAY
+              </div>
+            </div>
+
+            {/* Static Image */}
+            <Image
+              style={{ border: '12px solid white', borderRadius: '24px' }}
+              className="w-full h-auto"
+              src="/lana-roads-image.png"
+              alt="Lana Roads"
+              width={560}
+              height={560}
+            />
+
+            {/* Hover Video */}
+            <video
+              style={{ border: '12px solid white', borderRadius: '24px' }}
+              className="absolute top-0 left-0 w-full h-full object-cover hidden group-hover:block"
+              src="/lana-roads-video.mp4"
+              loop
+              autoPlay
+              muted
+            />
+          </div>
+        </div>
+      </div>
+
       <p className="text-[56px] sm:text-[64px] md:text-[72px] lg:text-[80px] xl:text-[94px] text-center pt-20 md:pt-8 leading-none">
         Games on Blinks
       </p>
